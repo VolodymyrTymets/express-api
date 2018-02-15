@@ -4,6 +4,15 @@
 ## Start
 
 Make sure that you have last version of [Node js](https://nodejs.org/en//) and [npm](https://www.npmjs.com/). Thеn run
+
+> !!! add .env file with `PORT` `MONGODB_URI` and `SECRET_TOKEN` variables for example 
+ ```
+MONGODB_URI = mongodb://localhost:27017/spark-horizon-api
+PORT = 3001
+SECRET_TOKEN = W3 Hav3 th3 kn0w h0w
+
+ ```
+ and then:
 ```
 npm i && npm run dev
 
