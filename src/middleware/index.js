@@ -1,5 +1,7 @@
 const { errorHandler } = require('./error-handler');
-const { authenticate, generateAccessToken } = require('./auth');
+const { authenticate, generateAccessToken } = require('../passport/passport-middleware');
+const { withUserInSession } = require('./session');
+
 const {
   sendOne,
   sendList,
@@ -21,4 +23,5 @@ module.exports = {
   generateAccessToken,
   withoutErrors,
   errorHandler,
+  withUserInSession,
 };
