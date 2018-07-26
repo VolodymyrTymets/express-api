@@ -50,5 +50,6 @@ module.exports = (models, { config }) => {
 
   api.put('/change-password', authenticate, changePassword(models));
 
+
   return api;
 };

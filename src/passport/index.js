@@ -1,3 +1,3 @@
-const { passport } = require('./passport');
+const { passport } = require('./Passport');
 
 module.exports = { passport };
