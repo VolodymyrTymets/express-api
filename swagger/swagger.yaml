@@ -1,26 +1,22 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
-  version: "0.0.1"
-  title: Hello World App
-# during dev, should point to your local machine
-host: localhost:3001
-# basePath prefixes all resource paths 
+  version: 0.0.1
+  title: Express Api
+host: 'localhost:3001'
 basePath: /api/v1
-# 
 schemes:
-  # tip: remove http to make production-grade
   - http
   - https
-# format of bodies a client can send (Content-Type)
 consumes:
   - application/json
-# format of the responses to the client (Accepts)
 produces:
   - application/json
 paths:
   /auth/sign-in:
     post:
       description: Sign In
+      tags:
+        - Authorization
       parameters:
         - name: body
           in: body
@@ -28,36 +24,30 @@ paths:
           required: true
           schema:
             required:
-             - email
-             - password
+              - email
+              - password
             properties:
               email:
                 type: string
               password:
                 type: string
       responses:
-        "200":
+        '200':
           description: Success
           schema:
-            # a pointer to a definition
-            $ref: "#/definitions/User"
-        # responses may fall through to errors
+            $ref: '#/definitions/User'
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
+            $ref: '#/definitions/ErrorResponse'
   /swagger:
     x-swagger-pipe: swagger_raw
-
-
-
-# complex objects have schema definitions
 definitions:
-  HelloWorldResponse:
+  User:
     required:
-      - message
+      - _id
     properties:
-      message:
+      _id:
         type: string
   ErrorResponse:
     required:

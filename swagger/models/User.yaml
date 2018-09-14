@@ -1,0 +1,6 @@
+User:
+  required:
+    - _id
+  properties:
+    _id:
+      type: string

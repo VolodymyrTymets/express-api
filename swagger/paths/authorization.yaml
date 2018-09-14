@@ -1,0 +1,30 @@
+/auth/sign-in:
+    post:
+      description: Sign In
+      tags:
+        - Authorization
+      parameters:
+        - name: body
+          in: body
+          description: email of user
+          required: true
+          schema:
+            required:
+             - email
+             - password
+            properties:
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/User"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
