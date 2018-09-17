@@ -26,12 +26,11 @@ securityDefinitions:
 
 paths:
   # register here all paths
-  $ref: "./paths/authorization.yaml"
+  $ref#auth: "./paths/authorization.yaml"
+  $ref#users: "./paths/users.yaml"
 
   /swagger:
     x-swagger-pipe: swagger_raw
-
-
 
 # complex objects have schema definitions
 definitions:
