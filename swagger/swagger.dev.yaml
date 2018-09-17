@@ -1,0 +1,44 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Express Api
+# during dev, should point to your local machine
+host: localhost:3001
+# basePath prefixes all resource paths 
+basePath: /api/v1
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+# 1) Define the security scheme type (HTTP bearer)
+securityDefinitions:
+  Bearer:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+
+paths:
+  # register here all paths
+  $ref#auth: "./paths/authorization.yaml"
+  $ref#users: "./paths/users.yaml"
+
+  /swagger:
+    x-swagger-pipe: swagger_raw
+
+# complex objects have schema definitions
+definitions:
+  # register here all models
+  $ref#User: "./models/User.yaml"
+
+# complex objects have schema definitions
+request-models:
+  # register here all request help objects
+  $ref#general: "./request-models/general.yaml"
+  $ref#authorization: "./request-models/authorization.yaml"

@@ -15,8 +15,7 @@ const errorHandler = (err, req, res, next) => {
     console.log(err);
   }
 
-
-  if (err.name === 'ValidationError') {
+  if (['UserExistsError', 'ValidationError'].includes(err.name)) {
     return res.status(405).json(err);
   }
 

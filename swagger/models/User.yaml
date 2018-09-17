@@ -1,0 +1,12 @@
+User:
+  required:
+    - _id
+  properties:
+    _id:
+      type: string
+    email:
+      type: string
+    profile:
+      properties:
+        fullName:
+          type: string

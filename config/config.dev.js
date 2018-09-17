@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   bodyLimit: '100kb',
   passport: {
@@ -19,4 +21,7 @@ module.exports = {
       passReqToCallback: true,
     }
   }
+  },
+	swaggerDirPath: path.resolve(__dirname, '../swagger/'),
+  swaggerFilePath: path.resolve(__dirname, '../swagger/swagger.dev.yaml'),
 };
