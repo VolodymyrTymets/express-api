@@ -6,7 +6,7 @@
       parameters:
         - name: body
           in: body
-          description: email of user
+          description: Sign in body Params
           required: true
           schema:
             required:
