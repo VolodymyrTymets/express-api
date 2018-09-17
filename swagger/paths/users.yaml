@@ -1,0 +1,22 @@
+/users/my:
+  put:
+    description: Update user own profile
+    security:
+      - Bearer: []
+    tags:
+      - User
+    parameters:
+     schema:
+      - $ref: "#/definitions/User"
+    responses:
+      "200":
+        description: Success
+        schema:
+          allOf:
+            - $ref: "#/definitions/User"
+      # responses may fall through to errors
+      default:
+        description: Error
+        schema:
+          $ref: "#/request-models/ErrorResponse"
+

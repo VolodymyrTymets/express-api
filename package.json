@@ -26,15 +26,20 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.5.0",
     "rest-api-errors": "^1.2.1",
+    "swagger": "^0.7.5",
+    "swagger-merger": "^1.4.3",
+    "swagger-ui-express": "^4.0.1",
     "winston": "^2.4.0",
-    "winston-mongodb": "^4.0.0-rc1"
+    "winston-mongodb": "^4.0.0-rc1",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "eslint": "^4.17.0",
     "eslint-plugin-node": "^6.0.0",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
-    "gulp-util": "^3.0.8"
+    "gulp-util": "^3.0.8",
+    "swagger-editor": "^3.6.10"
   },
   "engines": {
     "node": ">=9.0.0"

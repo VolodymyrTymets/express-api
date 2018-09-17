@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
-const config = require('../../config');
+const { config } = require('../../config');
 
 const authenticate = (req, res, next) => {
   req.headers.authorization = req.headers.authorization || `Bearer ${req.query.access_token}`;
