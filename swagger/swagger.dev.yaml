@@ -17,6 +17,12 @@ consumes:
 # format of the responses to the client (Accepts)
 produces:
   - application/json
+# 1) Define the security scheme type (HTTP bearer)
+securityDefinitions:
+  Bearer:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
 
 paths:
   # register here all paths
@@ -29,7 +35,11 @@ paths:
 
 # complex objects have schema definitions
 definitions:
-  # register here all definitions
+  # register here all models
   $ref#User: "./models/User.yaml"
-  # sasas
+
+# complex objects have schema definitions
+request-models:
+  # register here all request help objects
   $ref#general: "./request-models/general.yaml"
+  $ref#authorization: "./request-models/authorization.yaml"

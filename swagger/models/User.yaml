@@ -4,3 +4,9 @@ User:
   properties:
     _id:
       type: string
+    email:
+      type: string
+    profile:
+      properties:
+        fullName:
+          type: string

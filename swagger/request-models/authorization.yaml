@@ -1,0 +1,6 @@
+Token:
+  required:
+    - token
+  properties:
+    token:
+      type: string

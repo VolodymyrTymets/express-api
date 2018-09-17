@@ -6,7 +6,7 @@
       parameters:
         - name: body
           in: body
-          description: Sign in body Params
+          description: Sign in body params
           required: true
           schema:
             required:
@@ -21,10 +21,60 @@
         "200":
           description: Success
           schema:
-            # a pointer to a definition
-            $ref: "#/definitions/User"
+            allOf:
+              - $ref: "#/definitions/User"
+              - $ref: "#/request-models/Token"
         # responses may fall through to errors
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
+            $ref: "#/request-models/ErrorResponse"
+
+
+/auth/sign-up:
+  post:
+    description: Sign Up
+    tags:
+      - Authorization
+    parameters:
+      - name: body
+        in: body
+        description: Sign up body params
+        required: true
+        schema:
+          required:
+           - email
+           - password
+          properties:
+            email:
+              type: string
+            password:
+              type: string
+    responses:
+      "200":
+       description: Success
+       schema:
+         allOf:
+           - $ref: "#/definitions/User"
+           - $ref: "#/request-models/Token"
+    # responses may fall through to errors
+    default:
+      description: Error
+      schema:
+        $ref: "#/request-models/ErrorResponse"
+
+/auth/sign-out:
+  post:
+    description: Sign Out
+    security:
+      - Bearer: []
+    tags:
+      - Authorization
+    responses:
+      "200":
+       description: Success
+    # responses may fall through to errors
+    default:
+      description: Error
+      schema:
+        $ref: "#/request-models/ErrorResponse"

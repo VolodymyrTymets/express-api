@@ -1,6 +1,6 @@
-ErrorResponse:
+Token:
   required:
-    - message
+    - token
   properties:
-    message:
+    token:
       type: string
