@@ -1,0 +1,66 @@
+/cars/:
+  get:
+    description: Get list of cars example /api/v1/cars?search=Jarred&lat=-122.4326441&lng=37.7628964
+    parameters:
+      - in: query
+        name: search
+        schema:
+          type: string
+        description: The search query string
+        examples: 'Jon business'
+      - in: query
+        name: skip
+        schema:
+          type: integer
+        description: The numbers of items to skip before return
+      - in: query
+        name: limit
+        schema:
+          type: integer
+        description: The numbers of items to return
+      - in: query
+        name: lat
+        schema:
+          type: integer
+        description: The latitude user cords
+      - in: query
+        name: lng
+        schema:
+          type: integer
+        description: The longitude user cords
+      - in: query
+        name: distnace
+        schema:
+          type: integer
+        description: The distnace (radiuse) to search
+    tags:
+      - Car
+    responses:
+      "200":
+        description: Success
+        schema:
+          allOf:
+            - $ref: "#/definitions/Cars"
+      # responses may fall through to errors
+      default:
+        description: Error
+        schema:
+          $ref: "#/request-models/ErrorResponse"
+
+
+/cars/{_id}:
+  get:
+    description: Get sinfle car
+    tags:
+      - Car
+    responses:
+      "200":
+        description: Success
+        schema:
+          allOf:
+            - $ref: "#/definitions/Car"
+      # responses may fall through to errors
+      default:
+        description: Error
+        schema:
+          $ref: "#/request-models/ErrorResponse"
