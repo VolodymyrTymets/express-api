@@ -21,6 +21,8 @@ produces:
 paths:
   # register here all paths
   $ref: "./paths/authorization.yaml"
+  $ref#cars: "./paths/cars.yaml"
+  $ref#images: "./paths/images.yaml"
 
   /swagger:
     x-swagger-pipe: swagger_raw

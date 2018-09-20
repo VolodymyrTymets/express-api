@@ -28,7 +28,17 @@ const schema = new Schema({
   transform: {
     type: String,
     required: [true],
-  }
+  },
+  // cords definition in mongo db
+	location: {
+		type: {
+			type: String,
+			default: 'Point'
+		},
+		coordinates: [Number]
+	},
 });
+// create def for cords
+schema.index({ "location": "2dsphere" });
 
 module.exports = { schema };

@@ -4,7 +4,7 @@ const update = require('./update');
 const create = require('./careate');
 const remove = require('./remove');
 const get = require('./get');
-const usersCars = require('./users-cars');
+const { list } = require('./list');
 
 
 /**
@@ -44,10 +44,10 @@ const usersCars = require('./users-cars');
 
  **/
 
-module.exports = (models) => {
+module.exports = (models, { config }) => {
   const api = router();
 
-  api.get('/', authenticate, usersCars(models));
+  api.get('/', authenticate, list(models, { config }));
   api.get('/:_id', authenticate, get(models));
   api.post('/', authenticate, create(models));
   api.put('/:_id', authenticate, update(models));
