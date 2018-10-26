@@ -20,4 +20,22 @@ const fieldToSearch = search => fieldName => {
   return field;
 };
 
-module.exports = { fieldToSearch };
+/**
+ * Provide update fields in mongoose by from some object
+ *
+ * @example
+ *         updateDeepModel(model, { newField: { name: 'test' } }).save()
+ *
+ * **/
+
+const updateDeepModel = (model, object) => {
+	const keys = Object.keys(object);
+	keys.forEach(key => {
+		model[key] = object[key] instanceof Object && !(object[key] instanceof Date)
+      ? updateDeepModel(model[key], object[key])
+      : object[key]
+	});
+	return model;
+};
+
+module.exports = { fieldToSearch, updateDeepModel };
